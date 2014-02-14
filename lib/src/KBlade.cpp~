@@ -1,0 +1,52 @@
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
+#include "Bases.hpp"
+#include "KBlade.hpp"
+
+namespace gca {
+	
+	/*** Constructeur ***/	
+
+	//Constructeur à partir d'une taille
+	GCA_kBlade::GCA_kBlade(const int nb) :
+		Eigen::VectorXd(Eigen::VectorXd::Zero(nb)) {
+	};
+
+	//Constructeur par copie
+	GCA_kBlade::GCA_kBlade(const GCA_kBlade& other) :
+		bases(other.bases), Eigen::VectorXd(Eigen::VectorXd(other)) {
+	}
+
+	/*** Surcharge d'opérateur **/
+
+	/*** Getter & Setter **/
+
+	//Get a value of the vector when we know the base
+	double GCA_kBlade::get(BaseE e) const {
+
+		for(std::size_t i = 0 ; i< bases.size() ; ++i) {
+			if(bases[i] == e) {
+				return (*this)(i);
+			}
+		}
+
+		std::cout << "erreur : cette base n'appartient pas à cette k-blade\n" << std::endl;
+		return;
+	}
+
+	//Set a value of the vector when we know the base
+	void GCA_kBlade::set(BaseE e, double value) {
+
+		for(std::size_t i = 0 ; i< bases.size() ; ++i) {
+			if(e == bases[i]) {
+				(*this)(i) = value;
+				return;
+			}
+		}
+
+		std::cout << "erreur : cette base n'appartient pas à cette k-blade\n" << std::endl;
+		return;
+	}
+}

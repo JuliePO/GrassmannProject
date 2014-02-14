@@ -1,0 +1,71 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
+namespace gca {
+
+	typedef enum {
+	        e1 = 1, 
+	        e2 = 2,
+	        e3 = 3,
+	        e4 = 4,
+	        e12 = 12,
+	        e13 = 13,
+	        e14 = 14,
+	        e23 = 23,
+	        e24 = 24,
+	        e34 = 34,
+	        e123 = 123,
+	        e124 = 124,
+	        e134 = 134,
+	        e234 = 234,
+	        e1234 = 1234
+	} Base;
+
+	class GCA_kBlade : public Eigen::VectorXd {
+
+		public :
+
+		/*** Valeurs d'une class base ***/
+		std::vector<Base> bases;
+		Eigen::VectorXd vector;
+
+		/*** Constructeur ***/
+
+		//Constructeur par défaut
+		GCA_kBlade();
+
+		//Constructeur par copie
+		GCA_kBlade(const GCA_base& other) :
+			bases(other.bases), vector(other.vector) {
+		};
+
+		GCA_kBlade& operator=(const GCA_base& other);
+
+		//Get a value of the vector when we know the base
+		double get(Base e) const {
+
+			for(std::size_t i = 0 ; i< bases.size() ; ++i) {
+				if(e == bases[i]) {
+					return vector(i);
+					break;	
+				}
+			}
+		}
+
+		//Set a value of the vector when we know the base
+		void set(Base e, double value) {
+
+			for(std::size_t i = 0 ; i< bases.size() ; ++i) {
+				if(e == bases[i]) {
+					vector(i) = value;
+					break;
+				}
+			}
+		}
+
+	};
+}
+
+

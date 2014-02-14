@@ -1,0 +1,18 @@
+#include <Eigen/Dense>
+
+#include "Quadrivector.hpp"
+
+namespace gca {
+	
+	/*** Constructeurs ***/
+
+	//Constructeur par défaut
+	GCA_quadrivector::GCA_quadrivector() : 
+		Eigen::Vector1d(Eigen::Vector1d::Zero()) {
+	}
+
+	// Constructeur par copie
+	GCA_quadrivector::GCA_quadrivector(const GCA_quadrivector& other) :
+		Eigen::Vector1d(other) {
+	}
+}

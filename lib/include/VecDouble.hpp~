@@ -1,0 +1,24 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
+/*namespace gca {
+
+	class VecDouble {
+		
+		public :
+		
+		/*** Constructeur ***/
+		/*std::vector<double> doubles; // array of bases
+
+		VecDouble(const VecDouble& other); // Constructeur par copie
+
+		/*** Surcharge d'opérateur ***/
+		//Opérateur ,
+		VecDouble& operator,(double d);
+
+	/*};
+
+	friend VecDouble operator<<(GCA_kblade& kblade, double d);
+}*/

@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
+#include "VecDouble.hpp"
+
+namespace gca {
+	
+	/*** Constructeurs ***/
+
+	// Constructeur par copie
+	VecDouble::VecDouble(const VecDouble& other) :
+		doubles(other.doubles), kblade(other.kblade) {
+	}
+
+
+	/*** Surcharge d'opérateur ***/
+
+	//Opérateur ,
+	VecDouble& VecDouble::operator,(double d) {
+		doubles.push_back(d);
+		return *this;
+	}
+	
+	
+}

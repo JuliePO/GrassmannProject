@@ -1,0 +1,17 @@
+#pragma once
+#include <Eigen/Dense>
+
+namespace gca {
+
+	/*class GCA_quadrivector : public Eigen::Vector1d {
+		
+		public :
+		
+		/*** Constructeur ***/
+		GCA_quadrivector();//Constructeur par défaut
+
+		GCA_quadrivector(const GCA_quadrivector& other); // Constructeur par copie
+
+
+	};*/
+}

@@ -1,0 +1,24 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
+#include "Bases.hpp"
+#include "KBlade.hpp"
+
+namespace gca {
+
+	class GCA_quadvector : public GCA_kBlade {
+		
+		public :
+		
+		/*** Constructeur ***/
+		GCA_quadvector();//Constructeur par défaut
+		GCA_quadvector(double a); //Constructor with a double
+
+		GCA_quadvector(const GCA_quadvector& other); // Constructeur par copie
+
+		void setBases();
+
+	};
+}

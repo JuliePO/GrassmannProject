@@ -1,4 +1,2 @@
-cmake_minimum_required(VERSION 2.6)
-
-add_executable(Grassmann tp3.cpp)
+add_executable(Grassmann main.cpp)
 target_link_libraries(Grassmann ${ALL_LIBRARIES})

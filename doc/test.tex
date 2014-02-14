@@ -1,0 +1,86 @@
+% Fichier  : algorithm.tex
+% Format   : LaTeX file
+% Auteur   : Vincent Nozick
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[11pt]{article}
+\usepackage{a4wide}
+\usepackage{t1enc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}  
+\usepackage[T1]{fontenc}
+
+\usepackage{program}
+\usepackage{programs}
+\usepackage[ruled,french,linesnumbered]{algorithm2e}
+
+% pour virer la date:
+\date{}
+
+
+
+\begin{document}
+\title{les algos en \LaTeX}
+\maketitle
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla.
+\end{abstract}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{A installer}
+Pensez à installer le package : algorithm2e
+\begin{itemize}
+\item sous windows : automatique avec texmaker sous Windows.
+\item sous Linux : \texttt{apt-get install texlive-science}.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\section{En pratique}
+La résolution d'un système linéaire est un processus itératif décrit dans l'algorithme~\ref{algo:lm}.
+
+
+\begin{algorithm}
+\SetLine
+\caption{Résolution de systèmes non linéaires\label{algo:lm}}
+\SetLine
+\KwData{Un vecteur $\mathbf{a}$ des variables à calculer, un vecteur $\mathbf{b}$ des constantes du système et une fonction $f(\mathbf{a},\mathbf{b})$ à mini
+miser.}
+\KwResult{une valeur de $\mathbf{a}$ telle que $f$ soit minimal.}
+\SetVline
+$J = \left[ \partial f / \partial \mathbf{a} \right]$\\
+$\lambda = (J^\top J).10^{-3}$
+
+\ForEach{iteration}{
+	$J = \left[ \partial f / \partial \mathbf{a} \right]$\\
+	compteur = 0\\
+	accepté = \false\\
+	\Repeat{accepté = \true}{
+		résoudre : $(J^\top J + \lambda Id)\mathbf{\Delta a} = - J^\top f(\mathbf{a},\mathbf{b})$\\
+		\If{$ \vert f(\mathbf{a}+\mathbf{\Delta a},\mathbf{b})  \vert <  \vert f(\mathbf{a},\mathbf{b})  \vert$}{
+            $\mathbf{a} = \mathbf{a}+\mathbf{\Delta a}$\\
+        	$\lambda = \lambda / 10$\\
+            accepté = true
+		}\Else{	
+			$\lambda = \lambda \times 10$
+		}
+	compteur = compteur + 1\\
+	\If{ compteur $> 100$ }{\textbf{return} $\mathbf{a}$}
+	}
+}
+\textbf{return} $\mathbf{a}$
+\end{algorithm}
+
+
+
+
+\end{document}
+

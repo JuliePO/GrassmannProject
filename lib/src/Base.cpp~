@@ -1,0 +1,15 @@
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense> 
+
+#include "Base.hpp"
+
+double GCA_base::get(Base e) const {
+
+	for(std::size_t i = 0 ; i< bases.size() ; ++i) {
+		if(e == bases[i]) {
+			return vector(i);
+			break;	
+		}
+	}
+}

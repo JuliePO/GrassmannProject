@@ -1,3 +1,2 @@
-cmake_minimum_required(VERSION 2.6)
-
-add_executable(HelloWorld main.cpp)
+file(GLOB_RECURSE SRC_FILES *.cpp *.hpp)
+add_library(gca ${SRC_FILES})

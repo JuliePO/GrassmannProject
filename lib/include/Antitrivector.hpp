@@ -1,0 +1,39 @@
+#pragma once
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
+#include "Bases.hpp"
+#include "KBlade.hpp"
+#include "Trivector.hpp"
+#include "Vector.hpp"
+#include "Antivector.hpp"
+#include "Antibivector.hpp"
+#include "Bivector.hpp"
+
+namespace gca {
+
+	class GCA_antitrivector : public GCA_trivector {
+		
+		public :
+		
+		/*** Constructeur ***/
+		GCA_antitrivector();//Constructeur par défaut
+		GCA_antitrivector(double a, double b, double c, double d); //Constructor with a double
+
+		GCA_antitrivector(const GCA_antitrivector& other); // Constructeur par copie
+
+		/*** Base duale **/
+		friend GCA_antitrivector operator~(const GCA_vector& vector);
+
+		/*** Anti wedge product ***/
+		friend GCA_antitrivector operator&(const GCA_trivector& trivector, const GCA_bivector& bivector); // Webge product vector and bivector = trivector
+		friend GCA_antitrivector operator&(const GCA_bivector& bivector, const GCA_trivector& trivector); // Webge product bivector and vector = trivector
+
+	};
+
+	GCA_antitrivector operator~(const GCA_vector& vector);
+
+	GCA_antitrivector operator&(const GCA_trivector& trivector, const GCA_bivector& bivector);
+	GCA_antitrivector operator&(const GCA_bivector& bivector, const GCA_trivector& trivector);
+}
